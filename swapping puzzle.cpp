@@ -1,3 +1,6 @@
+//이름 : 김현구
+//학번 : 2015726076
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -28,7 +31,7 @@ void swap(int value)
 			a.push_back(x);
 			x -= 2 * int(pow(-1, i)) * int(pow(-1, value - 1));
 		}
-		x += 3 * int(pow(-1, i)) * int(pow(-1, value-1));
+		x += 3 * int(pow(-1, i)) * int(pow(-1, value - 1));
 	}
 
 	//print
@@ -41,7 +44,6 @@ void swap(int value)
 	}
 	cout << "\n";
 }
-
 
 int main()
 {
