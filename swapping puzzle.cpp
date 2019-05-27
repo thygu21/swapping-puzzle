@@ -1,25 +1,57 @@
 #include <iostream>
 #include <string>
+#include <math.h>
 
 using namespace std;
 
 void swap(int value)
 {
-    int x = value;
-    for(int i = 2; i < value + 2; i++) // 2 to 4
-    {
-        for(int j = 0; j <= i; j++)
-        {
-            cout <<
-        }
-    }
-    cout << value + 1;
+	//print value
+
+	//print path
+	int x = value;
+	int lineC = 0; //20 to enter
+	for (int i = 0; i < value; i++) // 2 to 4 if value=3
+	{
+		for (int j = 0; j < i + 2; j++)
+		{
+			cout << x << " ";
+			lineC++;
+			x += 2 * int(pow(-1, i));
+
+			if (lineC == 20)
+			{
+				cout << "\n";
+				lineC = 0;
+			}
+		}
+		x -= 1 * int(pow(-1, i));
+	}
+	x -= 2 * int(pow(-1, value - 1)); // 8 -> 6 if value=3;
+	for (int i = 0; i < value; i++) // 3 to 1 if value=3
+	{
+		for (int j = 0; j < value - i; j++)
+		{
+			cout << x << " ";
+			lineC++;
+			x -= 2 * int(pow(-1, i)) * int(pow(-1,value - 1));
+			if (lineC == 20)
+			{
+				cout << "\n";
+				lineC = 0;
+			}
+		}
+		x += 1 * int(pow(-1, i)) * int(pow(-1, value - 1));
+		if (value % 2 == 0 && i % 2 == 0)
+			x -= 2;
+	}
+	cout << "\n";
 }
 
 
 int main()
 {
-    string input;
+	string input;
 	int in;
 	while (1)
 	{
@@ -27,7 +59,7 @@ int main()
 		if (input == "EOI")
 			return 0;
 
-		in = stoi(input); 
+		in = stoi(input);
 		swap(in);
 	}
 }
@@ -39,6 +71,15 @@ int main()
 // b다시 출력
 // a다시 출력
 // n+1출력
+
+//2 3 4 3 2 1 -> 3
+//2 3 4 5 4 3 2 1 -> 4
+
+//3
+//3 5/ 6 4 2 /1 3 5 7 /6 4 2 /3 5 /4
+
+//4
+//4 6/ 7 5 3 /2 4 6 8 /9 7 5 3 1 /2 4 6 8 /7 5 3 /4 6 /5
 
 // 1 2 -> 3 -> 3 5 6 4 2 1 3 5 7 6 4 2 3 5 4 
 // 3 3
